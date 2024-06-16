@@ -1,4 +1,4 @@
-# Benarjee Sambangi's Personal Blog
+# Benarjee Sambangi's Portfolio
 
 Welcome to my personal blog! Here, I share my experiences, projects, and insights on frontend development, blockchain technologies, and much more. You'll find a mix of technical articles, tutorials, and personal reflections.
 
@@ -21,6 +21,11 @@ I'm Benarjee Sambangi, known as @X0rD3v1L in some tech communities. I specialize
 ## How to Use This Blog
 
 Feel free to browse through the posts, leave comments, and share your thoughts. If you have any questions or would like to connect, don't hesitate to reach out through LinkedIn or GitHub.
+
+## Stack
+
+- Framework: [Zola](https://www.getzola.org/)
+- Theme: Adapted [zola-bearblog](https://www.getzola.org/themes/apollo/) with some custom styles.
 
 Happy reading!
 
