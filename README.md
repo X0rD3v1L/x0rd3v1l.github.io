@@ -25,7 +25,7 @@ Feel free to browse through the posts, leave comments, and share your thoughts. 
 ## Stack
 
 - Framework: [Zola](https://www.getzola.org/)
-- Theme: Adapted [zola-bearblog](https://www.getzola.org/themes/apollo/) with some custom styles.
+- Theme: Adapted [zola-apollo](https://www.getzola.org/themes/apollo/) with some custom styles.
 
 Happy reading!
 
