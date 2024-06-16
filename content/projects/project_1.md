@@ -1,11 +1,9 @@
 +++
-title = "Apollo"
-description = "Modern and minimalistic blog theme."
+title = "Image Effects"
+description = "Applying image effects using WebAssembly and Rust."
 weight = 1
 
 [extra]
-local_image = "/projects/project-1.jpg"
-link_to = "https://github.com/not-matthias/apollo"
+local_image = "/projects/project-1.png"
+link_to = "https://github.com/X0rD3v1L/WebAssembly"
 +++
-
-Example project page
