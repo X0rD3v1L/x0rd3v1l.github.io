@@ -2,6 +2,22 @@
 title = "Best Resources to Get Started with Rust"
 date = "2024-07-07"
 
+[extra]
+meta = [
+    {property = "og:title", content = "Best Resources to Get Started with Rust"},
+    {property = "og:description", content = "An updated guide with the best resources to learn Rust, including official documentation, hands-on practice, video tutorials, courses, project suggestions, and community tips."},
+    {name = "description", content = "An updated guide with the best resources to learn Rust, including official documentation, hands-on practice, video tutorials, courses, project suggestions, and community tips."},
+    {name = "keywords", content = "Rust, Rust programming, learn Rust, Rust resources, Rust tutorials, Rust courses, Rust projects"},
+    {property = "og:image", content = "https://www.rust-lang.org/static/images/rust-logo-blk.svg"},
+    {property = "og:type", content = "article"},
+    {property = "og:url", content = "https://benarjeesambangi.zeabur.app/posts/001-best-resources-to-get-started-with-rust/"},
+    {property = "twitter:card", content = "summary_large_image"},
+    {property = "twitter:title", content = "Best Resources to Get Started with Rust"},
+    {property = "twitter:description", content = "An updated guide with the best resources to learn Rust, including official documentation, hands-on practice, video tutorials, courses, project suggestions, and community tips."},
+    {property = "twitter:image", content = "https://www.rust-lang.org/static/images/rust-logo-blk.svg"},
+]
+
+
 [taxonomies]
 tags=["rust"]
 +++
@@ -9,8 +25,6 @@ tags=["rust"]
 # Best Resources to Get Started with Rust
 
 (This article is updated periodically as better resources are found)
-
-![Rust Logo](https://www.rust-lang.org/static/images/rust-logo-blk.svg)
 
 ## Introduction to Rust
 
