@@ -4,7 +4,7 @@ path = "about"
 +++
 I'm Benarjee Sambangi — known as @X0rD3v1L in some tech communities. I specialize in frontend development, focusing on designing intuitive user interfaces and enhancing user experiences with advanced data visualization techniques.
 
-Recently, I've focused on enhancing SaaS solutions by creating and revamping features such as report generation and payroll dashboards. I've developed drag-and-drop form builders and custom template renderers, optimizing core logic and implementing real-time updates for better performance. Early in my career, I gained expertise in CSS, JavaScript, and ReactJS, developing reusable components and efficient UI designs.
+Recently, I’ve been working on **smart contract development in Rust** at BIMA, contributing to the **Universal Stable on BTC (USBD) project for decentralized finance**. Previously, I've focused on enhancing SaaS solutions by creating and revamping features such as report generation and payroll dashboards. I've developed drag-and-drop form builders and custom template renderers, optimizing core logic and implementing real-time updates for better performance. Early in my career, I gained expertise in **CSS, JavaScript, and ReactJS**, developing reusable components and efficient UI designs.
 
 In addition to my professional work, I am continuously expanding my knowledge. I am **learning Zero-Knowledge (zk)** proofs on my own and have a strong background in **Rust and WebAssembly**. I also have knowledge of ethers.js, enhancing my understanding of blockchain technologies and frontend security.
 
