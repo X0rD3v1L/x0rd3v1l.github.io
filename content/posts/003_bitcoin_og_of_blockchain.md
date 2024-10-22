@@ -18,7 +18,7 @@ meta = [
 ]
 
 [taxonomies]
-tags=["bitcoin", "blockchain", "cryptography"]
+tags=["bitcoin", "blockchain"]
 +++
 
 # Bitcoin: The OG of Blockchain
