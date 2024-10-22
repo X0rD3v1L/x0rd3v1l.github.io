@@ -23,7 +23,9 @@ tags=["bitcoin", "blockchain", "cryptography"]
 
 # Bitcoin: The OG of Blockchain
 
-![Bitcoin](https://bitcoin.org/img/icons/opengraph.png)
+<div style="text-align: center;">
+  <img src="https://bitcoin.org/img/icons/opengraph.png" alt="Bitcoin">
+</div>
 
 (This article explains Bitcoin's origins, its key technologies like blockchain and Proof of Work, and the transaction process. It also covers wallets, cryptography, and Layer 2 solutions for building on Bitcoin.)
 
