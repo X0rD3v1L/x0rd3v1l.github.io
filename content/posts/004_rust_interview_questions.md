@@ -24,7 +24,7 @@ tags=["Rust", "interview", "programming"]
 # Rust Interview Questions
 
 <div style="text-align: center;">
-  <img src="https://rust-lang.org/assets/images/rust-logo-blk.svg" alt="Rust Logo">
+  <img src="https://www.rust-lang.org/static/images/ferris-error.png" alt="Rust Logo">
 </div>
 
 (This article provides a curated list of interview questions that were asked to me, covering key Rust concepts. It aims to assist you in preparing for Rust-related interviews, focusing on areas like memory management, ownership, concurrency, and more.)
