@@ -2,8 +2,6 @@
 title = "About"
 path = "about"
 +++
-Based on your updated resume, here's a refined version of your **About Me** section, incorporating recent experience at Chingari and other minor enhancements for clarity and flow:
-
 ---
 I'm Benarjee Sambangi — known as @X0rD3v1L in some tech communities. I specialize in frontend development and smart contract engineering, with a focus on intuitive UI design and seamless user experiences backed by efficient data flows and real-time interactions.
 
