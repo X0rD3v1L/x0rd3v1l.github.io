@@ -2,12 +2,17 @@
 title = "About"
 path = "about"
 +++
-I'm Benarjee Sambangi — known as @X0rD3v1L in some tech communities. I specialize in frontend development, focusing on designing intuitive user interfaces and enhancing user experiences with advanced data visualization techniques.
+Based on your updated resume, here's a refined version of your **About Me** section, incorporating recent experience at Chingari and other minor enhancements for clarity and flow:
 
-Recently, I’ve been working on **smart contract development in Rust** at BIMA, contributing to the **Universal Stable on BTC (USBD) project for decentralized finance**. Previously, I've focused on enhancing SaaS solutions by creating and revamping features such as report generation and payroll dashboards. I've developed drag-and-drop form builders and custom template renderers, optimizing core logic and implementing real-time updates for better performance. Early in my career, I gained expertise in **CSS, JavaScript, and ReactJS**, developing reusable components and efficient UI designs.
+---
+I'm Benarjee Sambangi — known as @X0rD3v1L in some tech communities. I specialize in frontend development and smart contract engineering, with a focus on intuitive UI design and seamless user experiences backed by efficient data flows and real-time interactions.
 
-In addition to my professional work, I am continuously expanding my knowledge. I am **learning Zero-Knowledge (zk)** proofs on my own and have a strong background in **Rust and WebAssembly**. I also have knowledge of ethers.js, enhancing my understanding of blockchain technologies and frontend security.
+Most recently, I’ve been working as a Rust Developer at Chingari, where I developed and deployed a token launchpad on Solana using Rust and Anchor, while also contributing to performance optimization and security hardening of on-chain programs. Prior to this, I worked at BIMA on the Universal Stable on BTC (USBD) protocol, building secure, performant smart contracts in Rust for decentralized finance.
 
-My passion lies in web development, specifically with **React and Rust**, and I enjoy tackling challenges in blockchain and frontend technologies. When I'm not coding, you might find me exploring new destinations on a road trip.
+My frontend experience includes revamping payroll dashboards and crafting robust tools like drag-and-drop form builders and PDF templating systems. These solutions improved UX and automated large-scale operations like payroll report generation. I’ve built and published reusable components and internal packages that improved code reuse and cut redundant logic significantly.
 
-Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/benarjee-sambangi/) or check out my projects on [GitHub](https://github.com/X0rD3v1L).
+I continue to explore emerging tech, currently diving into Zero-Knowledge (zk) proofs. With a strong background in Rust, WebAssembly, and frontend technologies like React, I'm also familiar with blockchain tools like ethers.js, enabling me to bridge the gap between smart contracts and sleek UI experiences.
+
+Passionate about building at the intersection of web and blockchain, I enjoy solving problems that blend performance, usability, and innovation. When I’m not coding, I’m probably on a road trip, discovering new destinations.
+
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/benarjee-sambangi/) or check out my work on [GitHub](https://github.com/X0rD3v1L).
