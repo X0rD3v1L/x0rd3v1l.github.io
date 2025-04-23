@@ -115,23 +115,23 @@ These questions summarize those asked during various Rust-based interviews. I wi
     - You can use Rc<RefCell<T>> to create a counter that multiple parts of a single-threaded program can own and mutate.
     Rc enables shared ownership, and RefCell allows interior mutability checked at runtime.
 
-Example:
- 
- ```rust
- use std::rc::Rc;
- use std::cell::RefCell;
+    Example:
+    
+    ```rust
+    use std::rc::Rc;
+    use std::cell::RefCell;
 
- fn main() {
-     let counter = Rc::new(RefCell::new(0));
-     let counter1 = Rc::clone(&counter);
-     let counter2 = Rc::clone(&counter);
- 
-     *counter1.borrow_mut() += 1;
-     *counter2.borrow_mut() += 2;
- 
-     println!("Counter value: {}", counter.borrow()); // prints 3
- }
- ```
+    fn main() {
+        let counter = Rc::new(RefCell::new(0));
+        let counter1 = Rc::clone(&counter);
+        let counter2 = Rc::clone(&counter);
+    
+        *counter1.borrow_mut() += 1;
+        *counter2.borrow_mut() += 2;
+    
+        println!("Counter value: {}", counter.borrow()); // prints 3
+    }
+    ```
 
 
 18. **What is Cow and how is it used in Rust?**  
