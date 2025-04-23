@@ -51,6 +51,13 @@ These questions summarize those asked during various Rust-based interviews. I wi
 4. **What is the process of how memory is allocated for a `String` type in Rust?**  
    - Stack and heap memory allocation, `String` metadata (pointer, length, capacity), resizing a string, and how Rust manages deallocation.  
 
+5. **What is &str in Rust, and where is it stored?**
+    * &str is a string slice — an immutable view into a UTF-8 sequence. It can point to:
+        * Static memory ("literal") in the binary
+        * Heap memory (when sliced from a String)
+        * Embedded data via include_str!()
+    * It's a fat pointer (*const u8 + length) and does not own the data it references.
+
 ---
 
 ### **Concurrency and Asynchronous Programming**  
@@ -103,10 +110,34 @@ These questions summarize those asked during various Rust-based interviews. I wi
 16. **What is RefCell and how does it enable interior mutability in Rust? Provide an example.**  
     - Interior mutability with `RefCell`, runtime borrowing checks, and examples of how it allows mutating data even when the struct is immutable.  
 
-17. **What is Cow and how is it used in Rust?**  
+17. **How do you implement a shared, mutable global counter using Rc<RefCell<T>> in Rust?**
+
+    - You can use Rc<RefCell<T>> to create a counter that multiple parts of a single-threaded program can own and mutate.
+    Rc enables shared ownership, and RefCell allows interior mutability checked at runtime.
+
+Example:
+ 
+ ```rust
+ use std::rc::Rc;
+ use std::cell::RefCell;
+
+ fn main() {
+     let counter = Rc::new(RefCell::new(0));
+     let counter1 = Rc::clone(&counter);
+     let counter2 = Rc::clone(&counter);
+ 
+     *counter1.borrow_mut() += 1;
+     *counter2.borrow_mut() += 2;
+ 
+     println!("Counter value: {}", counter.borrow()); // prints 3
+ }
+ ```
+
+
+18. **What is Cow and how is it used in Rust?**  
     - The `Cow` (Clone on Write) type for optimizing memory usage, scenarios where it avoids cloning, and examples of using `Cow` with `str` and `Vec`.  
 
-18. **Explain deadlocks concerning Rust.**  
+19. **Explain deadlocks concerning Rust.**  
     - How deadlocks can occur with mutexes in multi-threaded programs, examples of cyclic resource dependencies, and strategies to avoid deadlocks.  
 ---
 
