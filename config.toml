@@ -8,8 +8,9 @@ minify_html = true
 taxonomies = [{ name = "tags" }]
 
 [markdown]
-highlight_code = true
-highlight_theme = "ayu-dark"
+
+[markdown.highlighting]
+theme = "ayu-dark"
 
 [extra]
 toc = true
