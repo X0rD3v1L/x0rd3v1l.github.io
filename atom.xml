@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>X0rD3v1L</title>
+    <subtitle>Benarjee Sambang portfolio</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://x0rd3v1l.github.io/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://x0rd3v1l.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-12-27T00:00:00+00:00</updated>
+    <id>https://x0rd3v1l.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Rust Interview Questions</title>
+        <published>2024-12-27T00:00:00+00:00</published>
+        <updated>2024-12-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://x0rd3v1l.github.io/posts/004-rust-interview-questions/"/>
+        <id>https://x0rd3v1l.github.io/posts/004-rust-interview-questions/</id>
+        
+        <content type="html" xml:base="https://x0rd3v1l.github.io/posts/004-rust-interview-questions/">&lt;h1 id=&quot;rust-interview-questions&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#rust-interview-questions&quot; aria-label=&quot;Anchor link for: rust-interview-questions&quot;&gt;Rust Interview Questions&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;static&#x2F;images&#x2F;ferris-error.png&quot; alt=&quot;Rust Logo&quot;&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;(This article provides a curated list of interview questions that were asked to me, covering key Rust concepts. It aims to assist you in preparing for Rust-related interviews, focusing on areas like memory management, ownership, concurrency, and more.)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#introduction&quot; aria-label=&quot;Anchor link for: introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust is known for its focus on memory safety, concurrency, and performance, making it one of the most sought-after languages in the tech industry. As a systems programming language, Rust is often used in high-performance applications, from web assembly to operating systems. Preparing for a Rust interview requires a deep understanding of the language&#x27;s core principles and features.&lt;&#x2F;p&gt;
+&lt;p&gt;These questions summarize those asked during various Rust-based interviews. I will update them periodically.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;basics-of-rust&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#basics-of-rust&quot; aria-label=&quot;Anchor link for: basics-of-rust&quot;&gt;&lt;strong&gt;Basics of Rust&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What is Rust, and where is it mostly used?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rust’s key features like memory safety, concurrency without data races, and zero-cost abstractions. Common use cases such as systems programming, web assembly, blockchain, and embedded systems.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What are ownership and borrowing in Rust? Explain with examples.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ownership rules, borrowing (&lt;code&gt;&amp;amp;T&lt;&#x2F;code&gt;, &lt;code&gt;&amp;amp;mut T&lt;&#x2F;code&gt;), the relationship between ownership and references, examples of valid and invalid ownership transfers.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What are lifetimes in Rust? Explain with examples.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The purpose of lifetimes, how they ensure memory safety, named lifetimes (&lt;code&gt;&#x27;a&lt;&#x2F;code&gt;), lifetime annotations in structs and functions, and examples to demonstrate their usage.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What is the process of how memory is allocated for a &lt;code&gt;String&lt;&#x2F;code&gt; type in Rust?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stack and heap memory allocation, &lt;code&gt;String&lt;&#x2F;code&gt; metadata (pointer, length, capacity), resizing a string, and how Rust manages deallocation.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What is &amp;amp;str in Rust, and where is it stored?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;amp;str is a string slice — an immutable view into a UTF-8 sequence. It can point to:
+&lt;ul&gt;
+&lt;li&gt;Static memory (&quot;literal&quot;) in the binary&lt;&#x2F;li&gt;
+&lt;li&gt;Heap memory (when sliced from a String)&lt;&#x2F;li&gt;
+&lt;li&gt;Embedded data via include_str!()&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;It&#x27;s a fat pointer (*const u8 + length) and does not own the data it references.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;concurrency-and-asynchronous-programming&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#concurrency-and-asynchronous-programming&quot; aria-label=&quot;Anchor link for: concurrency-and-asynchronous-programming&quot;&gt;&lt;strong&gt;Concurrency and Asynchronous Programming&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What are &lt;code&gt;async&lt;&#x2F;code&gt; and &lt;code&gt;await&lt;&#x2F;code&gt; in Rust?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rust’s approach to asynchronous programming, &lt;code&gt;async&lt;&#x2F;code&gt; functions returning &lt;code&gt;Future&lt;&#x2F;code&gt; objects, and examples demonstrating usage with executors.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Explain Tokio and where it is used.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Tokio runtime, its role in managing asynchronous tasks, features like timers and I&#x2F;O, and its usage in high-performance applications.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What is pinning in Rust, and why is it important?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pinning to ensure that memory locations remain fixed, its necessity for self-referential types, and examples related to asynchronous programming.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;error-handling-and-unsafe-code&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#error-handling-and-unsafe-code&quot; aria-label=&quot;Anchor link for: error-handling-and-unsafe-code&quot;&gt;&lt;strong&gt;Error Handling and Unsafe Code&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ol start=&quot;8&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;How do we handle errors in Rust?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Error handling with &lt;code&gt;Result&lt;&#x2F;code&gt;, &lt;code&gt;Option&lt;&#x2F;code&gt;, and the &lt;code&gt;?&lt;&#x2F;code&gt; operator. Idiomatic practices for error propagation and structured error handling with crates like &lt;code&gt;thiserror&lt;&#x2F;code&gt; or &lt;code&gt;anyhow&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;How does the &lt;code&gt;?&lt;&#x2F;code&gt; operator simplify error handling in Rust? Provide an example.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The syntax and use of &lt;code&gt;?&lt;&#x2F;code&gt; for early returns in functions, combining it with &lt;code&gt;Result&lt;&#x2F;code&gt; and &lt;code&gt;Option&lt;&#x2F;code&gt; for concise error propagation.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What is unsafe Rust? Explain with an example.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scenarios where unsafe code is needed, such as manual memory management or FFI. Example of unsafe blocks demonstrating dereferencing raw pointers.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;advanced-concepts&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#advanced-concepts&quot; aria-label=&quot;Anchor link for: advanced-concepts&quot;&gt;&lt;strong&gt;Advanced Concepts&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ol start=&quot;11&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What are generics in Rust? Explain with examples.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using generics for type abstraction in functions, structs, and enums. Example of generics combined with traits to enforce type constraints.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;How do you implement inheritance in Rust?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rust’s trait system as an alternative to classical inheritance, example of trait-based polymorphism, and composition over inheritance.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What is Zero-Cost Abstraction?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Explanation of how Rust achieves abstraction without runtime overhead, with examples of iterators, traits, and function calls being compiled to efficient machine code.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;memory-management-and-safety&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#memory-management-and-safety&quot; aria-label=&quot;Anchor link for: memory-management-and-safety&quot;&gt;&lt;strong&gt;Memory Management and Safety&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ol start=&quot;14&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What is the possibility of memory leaks in Rust?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reference cycles with &lt;code&gt;Rc&lt;&#x2F;code&gt; and &lt;code&gt;Arc&lt;&#x2F;code&gt;, how they lead to memory leaks, and the use of &lt;code&gt;Weak&lt;&#x2F;code&gt; to prevent them.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What are Smart Pointers? Explain about Box, Rc, Arc.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The functionality of &lt;code&gt;Box&lt;&#x2F;code&gt; for heap allocation, &lt;code&gt;Rc&lt;&#x2F;code&gt; for reference counting in single-threaded contexts, and &lt;code&gt;Arc&lt;&#x2F;code&gt; for atomic reference counting in multi-threaded contexts.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What is RefCell and how does it enable interior mutability in Rust? Provide an example.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Interior mutability with &lt;code&gt;RefCell&lt;&#x2F;code&gt;, runtime borrowing checks, and examples of how it allows mutating data even when the struct is immutable.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;How do you implement a shared, mutable global counter using Rc&amp;lt;RefCell&lt;T&gt;&amp;gt; in Rust?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can use Rc&amp;lt;RefCell&lt;T&gt;&amp;gt; to create a counter that multiple parts of a single-threaded program can own and mutate.
+Rc enables shared ownership, and RefCell allows interior mutability checked at runtime.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Example:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;use&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; std&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;rc&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;Rc&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;use&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; std&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;cell&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;RefCell&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; main&lt;&#x2F;span&gt;&lt;span&gt;() {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    let&lt;&#x2F;span&gt;&lt;span&gt; counter&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; Rc&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;new&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;RefCell&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;new&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;));&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    let&lt;&#x2F;span&gt;&lt;span&gt; counter1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; Rc&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;clone&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;counter);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    let&lt;&#x2F;span&gt;&lt;span&gt; counter2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; Rc&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;clone&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;counter);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;    *&lt;&#x2F;span&gt;&lt;span&gt;counter1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;borrow_mut&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; +=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;    *&lt;&#x2F;span&gt;&lt;span&gt;counter2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;borrow_mut&lt;&#x2F;span&gt;&lt;span&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; +=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 2&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;    println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;Counter value: {}&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, counter&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;borrow&lt;&#x2F;span&gt;&lt;span&gt;());&lt;&#x2F;span&gt;&lt;span style=&quot;color: #5A6673;font-style: italic;&quot;&gt; &#x2F;&#x2F; prints 3&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;What is Cow and how is it used in Rust?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;Cow&lt;&#x2F;code&gt; (Clone on Write) type for optimizing memory usage, scenarios where it avoids cloning, and examples of using &lt;code&gt;Cow&lt;&#x2F;code&gt; with &lt;code&gt;str&lt;&#x2F;code&gt; and &lt;code&gt;Vec&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Explain deadlocks concerning Rust.&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;How deadlocks can occur with mutexes in multi-threaded programs, examples of cyclic resource dependencies, and strategies to avoid deadlocks.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;Conclusion&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;These questions cover a variety of fundamental topics essential for understanding Rust&#x27;s capabilities and best practices, and are commonly asked in interviews.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Bitcoin: The OG of Blockchain</title>
+        <published>2024-10-22T00:00:00+00:00</published>
+        <updated>2024-10-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://x0rd3v1l.github.io/posts/003-bitcoin-og-of-blockchain/"/>
+        <id>https://x0rd3v1l.github.io/posts/003-bitcoin-og-of-blockchain/</id>
+        
+        <content type="html" xml:base="https://x0rd3v1l.github.io/posts/003-bitcoin-og-of-blockchain/">&lt;h1 id=&quot;bitcoin-the-og-of-blockchain&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bitcoin-the-og-of-blockchain&quot; aria-label=&quot;Anchor link for: bitcoin-the-og-of-blockchain&quot;&gt;Bitcoin: The OG of Blockchain&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;img src=&quot;https:&#x2F;&#x2F;bitcoin.org&#x2F;img&#x2F;icons&#x2F;opengraph.png&quot; alt=&quot;Bitcoin&quot;&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;(This article explains Bitcoin&#x27;s origins, its key technologies like blockchain and Proof of Work, and the transaction process. It also covers wallets, cryptography, and Layer 2 solutions for building on Bitcoin.)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#introduction&quot; aria-label=&quot;Anchor link for: introduction&quot;&gt;Introduction&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Bitcoin, launched by the anonymous &lt;strong&gt;Satoshi Nakamoto&lt;&#x2F;strong&gt; in 2008, introduced a revolutionary digital form of currency. Nakamoto&#x27;s white paper explained how Bitcoin could serve as a decentralized and censorship-resistant system of money, providing an alternative to traditional fiat currencies controlled by central authorities.&lt;&#x2F;p&gt;
+&lt;p&gt;The global financial crisis of 2008 demonstrated the vulnerability of centralized financial systems. Reckless monetary policies, including excessive money printing by central banks, led to a crash and widespread distrust. Bitcoin emerged as a solution to address these issues by giving individuals full control over their money, eliminating the need for intermediaries like banks.&lt;&#x2F;p&gt;
+&lt;p&gt;Bitcoin is built on decades of cryptographic research and distributed systems, and it integrates four core innovations:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;A decentralized P2P network&lt;&#x2F;strong&gt; (the Bitcoin Protocol)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;A public transaction ledger&lt;&#x2F;strong&gt; (the blockchain)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;A set of consensus rules&lt;&#x2F;strong&gt; for transaction validation and currency issuance&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;A Proof of Work (PoW) mechanism&lt;&#x2F;strong&gt; for global decentralized consensus&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;bitcoin-wallets-and-cryptography&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bitcoin-wallets-and-cryptography&quot; aria-label=&quot;Anchor link for: bitcoin-wallets-and-cryptography&quot;&gt;Bitcoin Wallets and Cryptography&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;wallets-managing-bitcoin-ownership&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#wallets-managing-bitcoin-ownership&quot; aria-label=&quot;Anchor link for: wallets-managing-bitcoin-ownership&quot;&gt;Wallets: Managing Bitcoin Ownership&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;A &lt;strong&gt;Bitcoin wallet&lt;&#x2F;strong&gt; manages the keys needed to access and spend Bitcoin. Wallets come in different forms: hardware wallets (most secure), software wallets (mobile and desktop apps), and paper wallets (physical copies of keys). A wallet holds the user&#x27;s &lt;strong&gt;private key&lt;&#x2F;strong&gt;, which is essential for signing transactions.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;public-and-private-keys&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#public-and-private-keys&quot; aria-label=&quot;Anchor link for: public-and-private-keys&quot;&gt;Public and Private Keys&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Bitcoin uses &lt;strong&gt;public key cryptography&lt;&#x2F;strong&gt; to secure transactions. When a user creates a wallet, they are given two keys:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Public key&lt;&#x2F;strong&gt;: Acts like an address, allowing others to send Bitcoin to the user.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Private key&lt;&#x2F;strong&gt;: A secret that proves ownership of the Bitcoin and is required to authorize transactions.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;elliptic-curve-cryptography-ecc&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#elliptic-curve-cryptography-ecc&quot; aria-label=&quot;Anchor link for: elliptic-curve-cryptography-ecc&quot;&gt;Elliptic Curve Cryptography (ECC)&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Bitcoin’s security relies on &lt;strong&gt;elliptic curve cryptography (ECC)&lt;&#x2F;strong&gt;, specifically the &lt;strong&gt;secp256k1&lt;&#x2F;strong&gt; curve. ECC allows Bitcoin to generate secure public and private keys. It is an efficient method of encryption, ensuring that it is computationally infeasible to crack Bitcoin&#x27;s encryption through brute force. This high level of security is a key factor behind Bitcoin’s resilience and trustworthiness.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-do-bitcoin-transactions-work&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#how-do-bitcoin-transactions-work&quot; aria-label=&quot;Anchor link for: how-do-bitcoin-transactions-work&quot;&gt;How Do Bitcoin Transactions Work?&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;A Bitcoin transaction informs the network that the owner of a certain amount of Bitcoin has authorized its transfer to a new owner. This is the basis of Bitcoin&#x27;s chain of ownership. When the new owner wants to transfer that Bitcoin to someone else, they authorize a new transaction, and the chain continues.&lt;&#x2F;p&gt;
+&lt;p&gt;Bitcoin transactions are propagated to the entire network but don’t immediately become part of the permanent ledger. They are only confirmed and included in the blockchain through the process of &lt;strong&gt;mining&lt;&#x2F;strong&gt;. Miners bundle transactions into blocks and compete to solve complex cryptographic puzzles that secure the network. The first miner to successfully solve the puzzle and produce a valid block receives a reward in newly minted Bitcoin and transaction fees.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;to know more about &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;learnweb3.io&#x2F;degrees&#x2F;stacks-developer-degree&#x2F;introduction-to-stacks&#x2F;introduction-to-bitcoin&#x2F;&quot;&gt;Bitcoin&lt;&#x2F;a&gt; and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;trustmachines.co&#x2F;learn&#x2F;how-does-bitcoin-mining-work&#x2F;&quot;&gt;Bitcoin mining&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;a-satoshi-the-smallest-unit-of-bitcoin&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#a-satoshi-the-smallest-unit-of-bitcoin&quot; aria-label=&quot;Anchor link for: a-satoshi-the-smallest-unit-of-bitcoin&quot;&gt;A Satoshi: The Smallest Unit of Bitcoin&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;A single Bitcoin can be divided into smaller units called &lt;strong&gt;satoshis&lt;&#x2F;strong&gt;, named after Bitcoin&#x27;s creator. One Bitcoin (BTC) equals &lt;strong&gt;100,000,000 satoshis&lt;&#x2F;strong&gt; (or &lt;strong&gt;10^8 satoshis&lt;&#x2F;strong&gt;). This divisibility allows for extremely precise transactions, which is important as the value of Bitcoin fluctuates.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;why-did-bitcoin-succeed&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#why-did-bitcoin-succeed&quot; aria-label=&quot;Anchor link for: why-did-bitcoin-succeed&quot;&gt;Why Did Bitcoin Succeed?&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Bitcoin was the first cryptocurrency to solve the &lt;strong&gt;double-spending problem&lt;&#x2F;strong&gt;, which had plagued earlier attempts to create a digital currency. Double spending occurs when someone spends the same digital currency more than once, but Bitcoin’s &lt;strong&gt;Proof of Work (PoW)&lt;&#x2F;strong&gt; mechanism ensures that this cannot happen. This innovation was crucial to Bitcoin&#x27;s success over earlier eCash systems. PoW creates economic incentives for participants (miners) to act honestly and secures the network against malicious actors.&lt;&#x2F;p&gt;
+&lt;p&gt;Bitcoin remains the most decentralized blockchain, with over 15,000 validators, far more than Ethereum&#x27;s current node count. Bitcoin also has unmatched liquidity and serves as a store of value, often referred to as &quot;digital gold.&quot; However, Bitcoin’s base layer is not optimal for running decentralized applications (dApps) or handling high transaction volumes.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;building-on-bitcoin&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#building-on-bitcoin&quot; aria-label=&quot;Anchor link for: building-on-bitcoin&quot;&gt;Building on Bitcoin&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Building applications on Bitcoin differs from platforms like Ethereum, which was designed with smart contracts in mind. Bitcoin&#x27;s primary focus is security and decentralization, but this makes it less suitable for running applications directly on its base layer. It processes between 3-7 transactions per second, and settlement takes about 10 minutes, making dApp development slow and expensive.&lt;&#x2F;p&gt;
+&lt;p&gt;To overcome these limitations, &lt;strong&gt;Layer 2 solutions&lt;&#x2F;strong&gt; have been developed to improve Bitcoin’s scalability and programmability. Layer 2 networks like &lt;strong&gt;Stacks&lt;&#x2F;strong&gt;, the &lt;strong&gt;Lightning Network&lt;&#x2F;strong&gt;, and others allow faster transactions and the possibility of dApps, without compromising Bitcoin’s base layer.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;some-layered-solutions-for-bitcoin&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#some-layered-solutions-for-bitcoin&quot; aria-label=&quot;Anchor link for: some-layered-solutions-for-bitcoin&quot;&gt;Some Layered Solutions for Bitcoin:&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.stacks.co&#x2F;&quot;&gt;Stacks&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;lightning.network&#x2F;&quot;&gt;Lightning Network&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;rootstock.io&#x2F;&quot;&gt;RSK&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;blockstream.com&#x2F;liquid&#x2F;&quot;&gt;Liquid Network&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;These technologies unlock the potential for building decentralized finance (DeFi) applications and other smart contract use cases on Bitcoin.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;unlocking-bitcoin-s-full-potential&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#unlocking-bitcoin-s-full-potential&quot; aria-label=&quot;Anchor link for: unlocking-bitcoin-s-full-potential&quot;&gt;Unlocking Bitcoin&#x27;s Full Potential&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;While Bitcoin was not originally designed for complex applications or smart contracts, the rise of &lt;strong&gt;layered solutions&lt;&#x2F;strong&gt; and new technologies like &lt;strong&gt;Arch&lt;&#x2F;strong&gt; aim to unlock Bitcoin’s full potential without compromising its core features of decentralization and security.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;arch-network.gitbook.io&#x2F;arch-documentation&quot;&gt;Arch&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;, a novel bridgeless platform, allows developers to create Turing-complete smart contracts directly on Bitcoin’s base layer without using a Layer 2 protocol. Arch leverages Bitcoin’s existing liquidity and security while avoiding the need for cross-chain bridges, which can be vulnerable to attacks.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;Conclusion&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Bitcoin is much more than just the first cryptocurrency—it represents the birth of decentralized digital money. Its design, based on cryptography and economic incentives, ensures security, decentralization, and censorship resistance. As the blockchain space continues to evolve, Bitcoin remains a foundational pillar, with ongoing developments in layers, smart contracts, and DeFi poised to unlock new possibilities for this revolutionary system.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;references&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#references&quot; aria-label=&quot;Anchor link for: references&quot;&gt;References&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Mastering Bitcoin by Andreas M. Antonopoulos and David A. Harding&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;trustmachines.co&#x2F;learn&#x2F;&quot;&gt;Bitcoin Education&lt;&#x2F;a&gt; by TrustMachines&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;learnweb3.io&#x2F;degrees&#x2F;stacks-developer-degree&#x2F;&quot;&gt;Stacks Developer Degree&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Comprehensive Rust Crash Course Overview</title>
+        <published>2024-10-16T00:00:00+00:00</published>
+        <updated>2024-10-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://x0rd3v1l.github.io/posts/002-comprehensive-rust-crash-course-overview/"/>
+        <id>https://x0rd3v1l.github.io/posts/002-comprehensive-rust-crash-course-overview/</id>
+        
+        <content type="html" xml:base="https://x0rd3v1l.github.io/posts/002-comprehensive-rust-crash-course-overview/">&lt;h1 id=&quot;comprehensive-rust-crash-course-overview&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#comprehensive-rust-crash-course-overview&quot; aria-label=&quot;Anchor link for: comprehensive-rust-crash-course-overview&quot;&gt;Comprehensive Rust Crash Course Overview&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;p&gt;(This article offers a detailed breakdown of key Rust concepts covered in the crash course notes.)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction-to-rust&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#introduction-to-rust&quot; aria-label=&quot;Anchor link for: introduction-to-rust&quot;&gt;Introduction to Rust&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust is a system programming language designed for memory safety and concurrency without sacrificing performance. It has gained significant popularity due to its ability to manage low-level operations with high-level language ergonomics. Rust&#x27;s ownership model prevents many common errors found in other languages, like null pointer dereferencing and data races, making it a solid choice for building reliable and efficient software.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;data-types-in-rust&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#data-types-in-rust&quot; aria-label=&quot;Anchor link for: data-types-in-rust&quot;&gt;Data Types in Rust&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust offers a wide range of data types to handle different kinds of data effectively:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Boolean&lt;&#x2F;strong&gt;: Stores a &lt;code&gt;true&lt;&#x2F;code&gt; or &lt;code&gt;false&lt;&#x2F;code&gt; value.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Integer&lt;&#x2F;strong&gt;: Includes several signed (&lt;code&gt;i8&lt;&#x2F;code&gt;, &lt;code&gt;i16&lt;&#x2F;code&gt;, &lt;code&gt;i32&lt;&#x2F;code&gt;, &lt;code&gt;i64&lt;&#x2F;code&gt;, &lt;code&gt;i128&lt;&#x2F;code&gt;, &lt;code&gt;isize&lt;&#x2F;code&gt;) and unsigned (&lt;code&gt;u8&lt;&#x2F;code&gt;, &lt;code&gt;u16&lt;&#x2F;code&gt;, &lt;code&gt;u32&lt;&#x2F;code&gt;, &lt;code&gt;u64&lt;&#x2F;code&gt;, &lt;code&gt;u128&lt;&#x2F;code&gt;, &lt;code&gt;usize&lt;&#x2F;code&gt;) integer types.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Floating-Point Numbers&lt;&#x2F;strong&gt;: Represented by &lt;code&gt;f32&lt;&#x2F;code&gt; or &lt;code&gt;f64&lt;&#x2F;code&gt;, useful for decimal numbers.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Character&lt;&#x2F;strong&gt;: A single Unicode scalar value, useful for text manipulation.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;String&lt;&#x2F;strong&gt;: Rust offers both &lt;code&gt;String&lt;&#x2F;code&gt; and &lt;code&gt;&amp;amp;str&lt;&#x2F;code&gt; for handling text, with &lt;code&gt;String&lt;&#x2F;code&gt; being growable and heap-allocated while &lt;code&gt;&amp;amp;str&lt;&#x2F;code&gt; is an immutable string slice.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;These types are essential building blocks, and Rust’s type system ensures strict type safety, which can prevent a wide array of bugs at compile time.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;variables-and-mutability&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#variables-and-mutability&quot; aria-label=&quot;Anchor link for: variables-and-mutability&quot;&gt;Variables and Mutability&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust takes a unique approach to variables. By default, variables are immutable, meaning their values cannot be changed once assigned. However, you can make a variable mutable by using the &lt;code&gt;mut&lt;&#x2F;code&gt; keyword:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; two&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 2&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #5A6673;font-style: italic;&quot;&gt; &#x2F;&#x2F; Immutable variable&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;let mut&lt;&#x2F;span&gt;&lt;span&gt; name&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt; &amp;quot;Benarjee Sambangi&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #5A6673;font-style: italic;&quot;&gt; &#x2F;&#x2F; Mutable variable&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This design enforces safety and encourages developers to think about whether a value should change during the program&#x27;s lifetime, contributing to clearer, more predictable code.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;functions-in-rust&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#functions-in-rust&quot; aria-label=&quot;Anchor link for: functions-in-rust&quot;&gt;Functions in Rust&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Functions in Rust allow you to encapsulate behavior and reuse code effectively. They are defined using the &lt;code&gt;fn&lt;&#x2F;code&gt; keyword, followed by the function name, parameters, and return type.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; add&lt;&#x2F;span&gt;&lt;span&gt;(a&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; i32&lt;&#x2F;span&gt;&lt;span&gt;, b&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; i32&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; i32&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    a&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; +&lt;&#x2F;span&gt;&lt;span&gt; b&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In this example, the &lt;code&gt;add&lt;&#x2F;code&gt; function takes two integers as input and returns their sum. Rust enforces strict type checking, ensuring that the function always returns an integer as specified.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;control-flow-loops-and-match-expressions&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#control-flow-loops-and-match-expressions&quot; aria-label=&quot;Anchor link for: control-flow-loops-and-match-expressions&quot;&gt;Control Flow: Loops and Match Expressions&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust provides several control flow mechanisms for looping and conditionally executing code.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;loops&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#loops&quot; aria-label=&quot;Anchor link for: loops&quot;&gt;Loops&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Rust supports traditional &lt;code&gt;while&lt;&#x2F;code&gt; loops and more flexible &lt;code&gt;loop&lt;&#x2F;code&gt; constructs. A &lt;code&gt;loop&lt;&#x2F;code&gt; will continue running indefinitely unless explicitly broken with the &lt;code&gt;break&lt;&#x2F;code&gt; statement:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; main&lt;&#x2F;span&gt;&lt;span&gt;() {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    let mut&lt;&#x2F;span&gt;&lt;span&gt; i&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    loop&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;        println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;{:?}&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, i);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        i&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; +=&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;        if&lt;&#x2F;span&gt;&lt;span&gt; i&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; &amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 4&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;            break&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In this example, the loop prints the value of &lt;code&gt;i&lt;&#x2F;code&gt; and increments it until the condition &lt;code&gt;i &amp;gt; 4&lt;&#x2F;code&gt; is met, after which the loop terminates.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;match-expressions&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#match-expressions&quot; aria-label=&quot;Anchor link for: match-expressions&quot;&gt;Match Expressions&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;code&gt;match&lt;&#x2F;code&gt; expressions are a powerful control flow tool in Rust, similar to switch statements in other languages but more exhaustive. The compiler ensures all cases are handled, preventing potential runtime errors.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; main&lt;&#x2F;span&gt;&lt;span&gt;() {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    let&lt;&#x2F;span&gt;&lt;span&gt; is_matched&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; false&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    match&lt;&#x2F;span&gt;&lt;span&gt; is_matched {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt;        true&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;Matched!&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;),&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt;        false&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;Not matched!&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;),&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The &lt;code&gt;match&lt;&#x2F;code&gt; expression in Rust checks the value of a variable and compares it against specified patterns, executing the corresponding block of code for the first pattern that matches.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ownership-and-borrowing&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#ownership-and-borrowing&quot; aria-label=&quot;Anchor link for: ownership-and-borrowing&quot;&gt;Ownership and Borrowing&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Ownership is a core feature in Rust that manages memory safety at compile time. Every value in Rust has a single owner, and when the owner goes out of scope, the value is dropped (freed from memory). This prevents memory leaks and ensures that the memory management is safe and efficient.&lt;&#x2F;p&gt;
+&lt;p&gt;Rust also introduces the concept of &lt;strong&gt;borrowing&lt;&#x2F;strong&gt;, which allows a function to temporarily access a value without taking ownership of it. This is achieved through references (&lt;code&gt;&amp;amp;&lt;&#x2F;code&gt;), which allow you to pass data without moving it.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; print_quantity&lt;&#x2F;span&gt;&lt;span&gt;(item&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;: &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;Grocery&lt;&#x2F;span&gt;&lt;span&gt;) {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;    println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;{:?}&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, item&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;quantity);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here, the &lt;code&gt;print_quantity&lt;&#x2F;code&gt; function borrows the &lt;code&gt;Grocery&lt;&#x2F;code&gt; struct without taking ownership, ensuring that the original value remains usable afterward.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;enums-and-structs&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#enums-and-structs&quot; aria-label=&quot;Anchor link for: enums-and-structs&quot;&gt;Enums and Structs&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust offers powerful abstractions for defining custom types using enums and structs. These are especially useful for organizing complex data.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;structs&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#structs&quot; aria-label=&quot;Anchor link for: structs&quot;&gt;Structs&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;A &lt;code&gt;struct&lt;&#x2F;code&gt; allows you to group related data into a single type. For example:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;struct&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; Drink&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    flavor&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; Flavor&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    fluid_oz&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; f64&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This &lt;code&gt;Drink&lt;&#x2F;code&gt; struct encapsulates a drink&#x27;s flavor and its quantity in fluid ounces.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;enums&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#enums&quot; aria-label=&quot;Anchor link for: enums&quot;&gt;Enums&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Enums are used to define a type by enumerating its possible variants. For instance:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;enum&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; Flavor&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;    Sparkling&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;    Sweet&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;    Fruity&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Enums in Rust are highly versatile and can hold data, making them more powerful than simple enums in other languages.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;vectors-and-hashmaps&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#vectors-and-hashmaps&quot; aria-label=&quot;Anchor link for: vectors-and-hashmaps&quot;&gt;Vectors and Hashmaps&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Vectors (&lt;code&gt;Vec&amp;lt;T&amp;gt;&lt;&#x2F;code&gt;) and hashmaps (&lt;code&gt;HashMap&amp;lt;K, V&amp;gt;&lt;&#x2F;code&gt;) are commonly used collections in Rust. Vectors are resizable arrays, while hashmaps store key-value pairs. Both are part of Rust&#x27;s standard library and offer a wide range of methods for handling data efficiently.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;vector-example&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#vector-example&quot; aria-label=&quot;Anchor link for: vector-example&quot;&gt;Vector Example:&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; my_numbers&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; vec!&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt;10&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 20&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 30&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 40&lt;&#x2F;span&gt;&lt;span&gt;];&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; element&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt; in&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; &amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;my_numbers {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;    println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;{:?}&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, element);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;hashmap-example&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#hashmap-example&quot; aria-label=&quot;Anchor link for: hashmap-example&quot;&gt;Hashmap Example:&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;use&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; std&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;collections&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;HashMap&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; main&lt;&#x2F;span&gt;&lt;span&gt;() {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    let mut&lt;&#x2F;span&gt;&lt;span&gt; stock&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; HashMap&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;new&lt;&#x2F;span&gt;&lt;span&gt;();&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    stock&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;insert&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;Chairs&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 5&lt;&#x2F;span&gt;&lt;span&gt;);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    stock&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;insert&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;Tables&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 2&lt;&#x2F;span&gt;&lt;span&gt;);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    for&lt;&#x2F;span&gt;&lt;span&gt; (item, qty)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt; in&lt;&#x2F;span&gt;&lt;span&gt; stock&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;iter&lt;&#x2F;span&gt;&lt;span&gt;() {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt;        println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;Item: {}, Quantity: {}&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, item, qty);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Vectors and hashmaps are critical for many applications where dynamic or mapped data structures are needed.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;generics-and-traits&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#generics-and-traits&quot; aria-label=&quot;Anchor link for: generics-and-traits&quot;&gt;Generics and Traits&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust allows for &lt;strong&gt;generic programming&lt;&#x2F;strong&gt;, where functions or structs can operate on multiple types without sacrificing performance. Generics enable code reusability, and combined with traits, Rust ensures type safety and flexibility.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;generic-function-example&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#generic-function-example&quot; aria-label=&quot;Anchor link for: generic-function-example&quot;&gt;Generic Function Example:&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; largest&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;T&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; PartialOrd&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;(list&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;: &amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;T&lt;&#x2F;span&gt;&lt;span&gt;])&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; -&amp;gt; &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;T&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    let mut&lt;&#x2F;span&gt;&lt;span&gt; largest&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; = &amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;list[&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;];&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    for&lt;&#x2F;span&gt;&lt;span&gt; item&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt; in&lt;&#x2F;span&gt;&lt;span&gt; list {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;        if&lt;&#x2F;span&gt;&lt;span&gt; item&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; &amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; largest {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;            largest&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; item;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;        }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    largest&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;In this example, the &lt;code&gt;largest&lt;&#x2F;code&gt; function can now accept a list of any type that implements the &lt;code&gt;PartialOrd&lt;&#x2F;code&gt; trait, making the function much more flexible.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;error-handling-with-result-and-option&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#error-handling-with-result-and-option&quot; aria-label=&quot;Anchor link for: error-handling-with-result-and-option&quot;&gt;Error Handling with Result and Option&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust uses enums like &lt;code&gt;Result&amp;lt;T, E&amp;gt;&lt;&#x2F;code&gt; and &lt;code&gt;Option&amp;lt;T&amp;gt;&lt;&#x2F;code&gt; for error handling and handling optional values.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;result-example&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#result-example&quot; aria-label=&quot;Anchor link for: result-example&quot;&gt;Result Example:&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FFB454;&quot;&gt; divide&lt;&#x2F;span&gt;&lt;span&gt;(a&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; i32&lt;&#x2F;span&gt;&lt;span&gt;, b&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; i32&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; Result&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; &amp;amp;&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;static str&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;    if&lt;&#x2F;span&gt;&lt;span&gt; b&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; ==&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt; 0&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;        Err&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AAD94C;&quot;&gt;&amp;quot;Cannot divide by zero&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    }&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt; else&lt;&#x2F;span&gt;&lt;span&gt; {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt;        Ok&lt;&#x2F;span&gt;&lt;span&gt;(a&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; &#x2F;&lt;&#x2F;span&gt;&lt;span&gt; b)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;option-example&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#option-example&quot; aria-label=&quot;Anchor link for: option-example&quot;&gt;Option Example:&lt;&#x2F;a&gt;&lt;&#x2F;h3&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #BFBDB6; background-color: #0D1017;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #FF8F40;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span&gt; locker_number&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F29668;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #59C2FF;&quot;&gt; Some&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #D2A6FF;&quot;&gt;115&lt;&#x2F;span&gt;&lt;span&gt;);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;These types provide a way to handle errors and null-like values safely, avoiding crashes or undefined behavior at runtime.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#conclusion&quot; aria-label=&quot;Anchor link for: conclusion&quot;&gt;Conclusion&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;This crash course overview covers essential Rust concepts, including data types, control flow, ownership, structs, enums, generics, and error handling. These are foundational for working with Rust effectively. By mastering these topics, you will be well-prepared to build complex systems with Rust’s powerful language features. Be sure to continue practicing and exploring deeper into topics like concurrency, async programming, and advanced trait systems.&lt;&#x2F;p&gt;
+&lt;p&gt;Experiment with these examples, build small projects, and engage with the Rust community to deepen your understanding!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Best Resources to Get Started with Rust</title>
+        <published>2024-07-07T00:00:00+00:00</published>
+        <updated>2024-07-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://x0rd3v1l.github.io/posts/001-best-resources-to-get-started-with-rust/"/>
+        <id>https://x0rd3v1l.github.io/posts/001-best-resources-to-get-started-with-rust/</id>
+        
+        <content type="html" xml:base="https://x0rd3v1l.github.io/posts/001-best-resources-to-get-started-with-rust/">&lt;h1 id=&quot;best-resources-to-get-started-with-rust&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#best-resources-to-get-started-with-rust&quot; aria-label=&quot;Anchor link for: best-resources-to-get-started-with-rust&quot;&gt;Best Resources to Get Started with Rust&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;p&gt;(This article is updated periodically as better resources are found)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;introduction-to-rust&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#introduction-to-rust&quot; aria-label=&quot;Anchor link for: introduction-to-rust&quot;&gt;Introduction to Rust&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust is a high-performance programming language known for its emphasis on safety, concurrency, and performance. Its unique ownership model and borrow checker help prevent common programming errors like null pointer dereferences and data races. Rust is increasingly being adopted for systems programming, web development, game development, and more.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;official-documentation&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#official-documentation&quot; aria-label=&quot;Anchor link for: official-documentation&quot;&gt;Official Documentation&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;book&#x2F;&quot;&gt;The Rust Programming Language (Rust Book)&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: The official and most comprehensive guide to Rust, covering everything from the basics to advanced topics.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;rust-by-example&#x2F;&quot;&gt;Rust by Example&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: A collection of runnable examples that cover many common programming tasks.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;rust-unofficial.github.io&#x2F;too-many-lists&#x2F;&quot;&gt;Learn Rust With Entirely Too Many Linked Lists&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: This book provides a deep dive into Rust&#x27;s ownership and borrowing system by implementing linked lists.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;hands-on-practice&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#hands-on-practice&quot; aria-label=&quot;Anchor link for: hands-on-practice&quot;&gt;Hands-On Practice&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;rustlings&quot;&gt;Rustlings&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: A collection of small exercises designed to familiarize you with reading and writing Rust code.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;rust-exercises.com&#x2F;01_intro&#x2F;00_welcome&quot;&gt;100 Exercises to Learn Rust&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;:  A curated set of 100 exercises with varying difficulty levels to help you learn Rust by doing.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;exercism.org&#x2F;tracks&#x2F;rust&quot;&gt;Exercism - Rust Track&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: Solve Rust exercises with the guidance of mentors.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;LeetCode exercises&lt;&#x2F;strong&gt;: Solve some LeetCode problems in Rust to practice your problem-solving and syntax skills.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;video-tutorials&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#video-tutorials&quot; aria-label=&quot;Anchor link for: video-tutorials&quot;&gt;Video Tutorials&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@jonhoo&#x2F;&quot;&gt;Jon Gjengset&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: In-depth videos and live streams covering advanced Rust concepts.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@letsgetrusty&quot;&gt;Let&#x27;s Get Rusty&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: Beginner-friendly Rust tutorials and project walkthroughs.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@dougmilford7814&#x2F;&quot;&gt;Doug Milford&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: A mix of Rust tutorials, Q&amp;amp;As, and discussions.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;@ChrisBiscardi&quot;&gt;Chris Biscardi&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: Tutorials on various Rust topics and projects.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;courses&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#courses&quot; aria-label=&quot;Anchor link for: courses&quot;&gt;Courses&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;youtu.be&#x2F;lzKeecy4OmQ?si=BzMTxXEWa1ORtcXB&quot;&gt;Zero To Mastery Free Crash Course&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: A quick overview of Rust fundamentals.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;zerotomastery.io&#x2F;courses&#x2F;learn-rust&#x2F;&quot;&gt;Zero To Mastery Paid Course&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: A more comprehensive course with hands-on projects.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.udemy.com&#x2F;course&#x2F;rust-lang&#x2F;&quot;&gt;Udemy - Learn Rust Programming by Building Real Applications&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;: A practical course focusing on real-world applications.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;tiny-project-suggestions&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#tiny-project-suggestions&quot; aria-label=&quot;Anchor link for: tiny-project-suggestions&quot;&gt;Tiny Project Suggestions&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CLI tools&lt;&#x2F;strong&gt;: Create your own versions of common tools like &lt;code&gt;grep&lt;&#x2F;code&gt; or &lt;code&gt;cat&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;JSON manipulation&lt;&#x2F;strong&gt;: Write a program to read and write JSON data.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;HTTP server&lt;&#x2F;strong&gt;: Build a basic web server.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Simple calculator&lt;&#x2F;strong&gt;: Implement a calculator with basic arithmetic operations.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Text parser&lt;&#x2F;strong&gt;: Write a program to parse and analyze text files.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;additional-tips&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#additional-tips&quot; aria-label=&quot;Anchor link for: additional-tips&quot;&gt;Additional Tips&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Experiment with familiar concepts:&lt;&#x2F;strong&gt; Implement tasks like web scraping, which you know from other programming languages, in Rust to see how they work differently.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Join the Rust Community:&lt;&#x2F;strong&gt; The Rust community is welcoming and helpful. Join forums, chat rooms, or online communities to ask questions and learn from others.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;rust&#x2F;&quot;&gt;Rust Subreddit&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Read Rust Blogs:&lt;&#x2F;strong&gt; There are many excellent Rust blogs and online resources. Some notable ones include:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;blog.rust-lang.org&#x2F;&quot;&gt;Rust Blog&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Contribute to Open Source:&lt;&#x2F;strong&gt; Contributing to Rust projects is a great way to learn and give back to the community. Check out:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;search?q=label%3A%22good+first+issue%22+language%3ARust&amp;amp;type=Issues&quot;&gt;Good First Issues&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Thanks for reading!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
